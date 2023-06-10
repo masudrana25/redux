@@ -1,14 +1,12 @@
 import React from 'react';
 import Product from '../Product/Product';
+import { addToCart } from './../../redux/actions/cartActions';
+import { connect } from 'react-redux';
 
-const Shop = () => {
+const Shop = (props) => {
+  console.log(props);
   const products = [
-    { name: 'Asus Laptop', id: 1 },
-    {name : 'HP Laptop', id: 2},
-    {name : 'Lenovo Laptop', id: 3},
-    {name : 'Apple Laptop', id: 4},
-    {name : 'Dell Laptop', id: 5},
-    {name : 'Dim Laptop', id: 6},
+    
   ]
   return (
     <div>
@@ -19,5 +17,20 @@ const Shop = () => {
     </div>
   );
 };
+
+const mapStateToProps = (state) => {
+  return {
+    cart: state.cart,
+    products: state.products
+  };
+};
+
+const mapDispatchToProps = {
+  addToCart: addToCart
+};
+
+const connectToStore = connect(mapStateToProps, mapDispatchToProps);
+
+connectToStore(Shop)
 
 export default Shop;

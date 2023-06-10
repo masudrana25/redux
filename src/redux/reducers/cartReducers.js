@@ -1,7 +1,13 @@
 import { ADD_TO_CART, REMOVE_FROM_CART } from "../actions/cartActions";
 
 const initialState = {
-  cart: []
+  cart: [],
+  products: [{ name: 'Asus Laptop', id: 1 },
+    {name : 'HP Laptop', id: 2},
+    {name : 'Lenovo Laptop', id: 3},
+    {name : 'Apple Laptop', id: 4},
+    {name : 'Dell Laptop', id: 5},
+    {name : 'Dim Laptop', id: 6}]
 };
 
 const cartReducers = (state = initialState, action) => {
